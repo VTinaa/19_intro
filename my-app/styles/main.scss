@@ -1,0 +1,229 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../fonts/Poppins.woff2') format('woff2'),
+        url('../fonts/Poppins.woff') format('woff'),
+        url('../fonts/Poppins.svg#Poppins') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('../fonts/Poppins-Medium.woff2') format('woff2'),
+        url('../fonts/Poppins-Medium.woff') format('woff'),
+        url('../fonts/Poppins-Medium.svg#Poppins-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../fonts/Poppins-Regular.woff2') format('woff2'),
+        url('../fonts/Poppins-Regular.woff') format('woff'),
+        url('../fonts/Poppins-Regular.svg#Poppins-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+$font-bold:'Poppins-Bold';
+$font-medium:'Poppins-Medium';
+$font-regular:'Poppins-Regular';
+
+@mixin heading($font,$size,$text){
+    font-family: $font;
+    font-size: $size;
+    color: $text;
+}
+
+$prime-1:#00aaea;
+$prime-2:#f75e2e;
+$prime-3:#ecfa4d;
+$prime-4:#656a70;
+
+//light
+// $pr-1-light-1:lighten($prime-1,40%);
+$pr-1-light-1:mix(#fff,$prime-1,40%);
+$pr-1-light-2:mix(#fff,$prime-1,75%);
+$pr-1-light-3:mix(#fff,$prime-1,90%);
+
+$pr-2-light-1:mix(#fff,$prime-2,40%);
+$pr-2-light-2:mix(#fff,$prime-2,75%);
+$pr-2-light-3:mix(#fff,$prime-2,90%);
+
+$pr-3-light-1:mix(#fff,$prime-3,40%);
+$pr-3-light-2:mix(#fff,$prime-3,75%);
+$pr-3-light-3:mix(#fff,$prime-3,90%);
+
+$pr-4-light-1:mix(#fff,$prime-4,40%);
+$pr-4-light-2:mix(#fff,$prime-4,75%);
+$pr-4-light-3:mix(#fff,$prime-4,90%);
+
+//dark
+$pr-1-dark-1:mix(#000,$prime-1,20%);
+$pr-1-dark-2:mix(#000,$prime-1,50%);
+$pr-1-dark-3:mix(#000,$prime-1,70%);
+
+$pr-2-dark-1:mix(#000,$prime-2,20%);
+$pr-2-dark-2:mix(#000,$prime-2,50%);
+$pr-2-dark-3:mix(#000,$prime-2,70%);
+
+$pr-3-dark-1:mix(#000,$prime-3,20%);
+$pr-3-dark-2:mix(#000,$prime-3,50%);
+$pr-3-dark-3:mix(#000,$prime-3,70%);
+
+$pr-4-dark-1:mix(#000,$prime-4,20%);
+$pr-4-dark-2:mix(#000,$prime-4,50%);
+$pr-4-dark-3:mix(#000,$prime-4,70%);
+
+
+
+.grid {
+    margin: 0 auto;
+    width: 500px;
+    display: grid;
+    grid-template-columns: repeat(4,100px);
+    grid-auto-rows: 100px;
+    gap: 40px;
+
+    div {
+        border-radius: 50%;
+    }
+
+    .prime-1 {
+        background-color: $prime-1;
+    }
+    .prime-2 {
+        background-color: $prime-2;
+    }
+    .prime-3 {
+        background-color: $prime-3;
+    }
+    .prime-4 {
+        background-color: $prime-4;
+    }
+    // 
+    .pr-1-light-1 {
+        background-color: $pr-1-light-1;
+    }
+    .pr-1-light-2 {
+        background-color: $pr-1-light-2;
+    }
+    .pr-1-light-3 {
+        background-color: $pr-1-light-3;
+    }
+
+    .pr-1-dark-1 {
+        background-color: $pr-1-dark-1;
+    }
+    .pr-1-dark-2 {
+        background-color: $pr-1-dark-2;
+    }
+    .pr-1-dark-3 {
+        background-color: $pr-1-dark-3;
+    }
+
+    //
+    .pr-2-light-1 {
+         background-color: $pr-2-light-1;
+     }
+    .pr-2-light-2 {
+        background-color: $pr-2-light-2;
+    }
+    .pr-2-light-3 {
+        background-color: $pr-2-light-3;
+    }
+
+    .pr-2-dark-1 {
+        background-color: $pr-2-dark-1;
+    }
+    .pr-2-dark-2 {
+        background-color: $pr-2-dark-2;
+    }
+    .pr-2-dark-3 {
+        background-color: $pr-2-dark-3;
+    }
+
+    //
+    .pr-3-light-1 {
+        background-color: $pr-3-light-1;
+    }
+   .pr-3-light-2 {
+       background-color: $pr-3-light-2;
+   }
+   .pr-3-light-3 {
+       background-color: $pr-3-light-3;
+   }
+
+   .pr-3-dark-1 {
+       background-color: $pr-3-dark-1;
+   }
+   .pr-3-dark-2 {
+       background-color: $pr-3-dark-2;
+   }
+   .pr-3-dark-3 {
+       background-color: $pr-3-dark-3;
+   }
+
+   //
+   .pr-4-light-1 {
+        background-color: $pr-4-light-1;
+    }
+   .pr-4-light-2 {
+       background-color: $pr-4-light-2;
+   }
+   .pr-4-light-3 {
+       background-color: $pr-4-light-3;
+   }
+
+   .pr-4-dark-1 {
+       background-color: $pr-4-dark-1;
+   }
+   .pr-4-dark-2 {
+       background-color: $pr-4-dark-2;
+   }
+   .pr-4-dark-3 {
+       background-color: $pr-4-dark-3;
+   }
+}
+
+//
+.container {
+        margin-left: 15px;
+
+    h1 {
+        @include heading($font-bold,35px,$pr-4-dark-3);
+    }
+    
+    h2 {
+        @include heading($font-medium,33px,$pr-4-dark-2);
+    }
+    h2:hover {
+        width: 444px;
+        padding-left: 15px;
+        background-color: $prime-1;
+        color: #fff
+    }
+    
+    h3 {
+        @include heading($font-medium,27px,$pr-4-dark-3);
+    }
+    
+    h4 {
+        @include heading($font-medium,22px,$pr-4-dark-3);
+    }
+    
+    h5 {
+        @include heading($font-medium,17px,$pr-4-dark-3);
+    }
+    
+    h6 {
+        @include heading($font-medium,15px,$pr-4-dark-3);
+    }
+    
+    p {
+        @include heading($font-medium,14px,$pr-4-dark-1);
+    }
+}
+
+
