@@ -1,86 +1,11 @@
 @import "./variables.scss";
 @import "./mixin.scss";
 @import "./base.scss";
+@import "./fonts.scss";
 
-@font-face {
-    font-family: 'Poppins-Bold';
-    src: url('../fonts/Poppins.woff2') format('woff2'),
-        url('../fonts/Poppins.woff') format('woff'),
-        url('../fonts/Poppins.svg#Poppins') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+body {
+    margin-left: 15px;
 }
-@font-face {
-    font-family: 'Poppins-Medium';
-    src: url('../fonts/Poppins-Medium.woff2') format('woff2'),
-        url('../fonts/Poppins-Medium.woff') format('woff'),
-        url('../fonts/Poppins-Medium.svg#Poppins-Medium') format('svg');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Poppins-Regular';
-    src: url('../fonts/Poppins-Regular.woff2') format('woff2'),
-        url('../fonts/Poppins-Regular.woff') format('woff'),
-        url('../fonts/Poppins-Regular.svg#Poppins-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-$font-bold:'Poppins-Bold';
-$font-medium:'Poppins-Medium';
-$font-regular:'Poppins-Regular';
-
-@mixin heading($font,$size,$text){
-    font-family: $font;
-    font-size: $size;
-    color: $text;
-}
-
-$prime-1:#00aaea;
-$prime-2:#f75e2e;
-$prime-3:#ecfa4d;
-$prime-4:#656a70;
-
-//light
-// $pr-1-light-1:lighten($prime-1,40%);
-$pr-1-light-1:mix(#fff,$prime-1,40%);
-$pr-1-light-2:mix(#fff,$prime-1,75%);
-$pr-1-light-3:mix(#fff,$prime-1,90%);
-
-$pr-2-light-1:mix(#fff,$prime-2,40%);
-$pr-2-light-2:mix(#fff,$prime-2,75%);
-$pr-2-light-3:mix(#fff,$prime-2,90%);
-
-$pr-3-light-1:mix(#fff,$prime-3,40%);
-$pr-3-light-2:mix(#fff,$prime-3,75%);
-$pr-3-light-3:mix(#fff,$prime-3,90%);
-
-$pr-4-light-1:mix(#fff,$prime-4,40%);
-$pr-4-light-2:mix(#fff,$prime-4,75%);
-$pr-4-light-3:mix(#fff,$prime-4,90%);
-
-//dark
-$pr-1-dark-1:mix(#000,$prime-1,20%);
-$pr-1-dark-2:mix(#000,$prime-1,50%);
-$pr-1-dark-3:mix(#000,$prime-1,70%);
-
-$pr-2-dark-1:mix(#000,$prime-2,20%);
-$pr-2-dark-2:mix(#000,$prime-2,50%);
-$pr-2-dark-3:mix(#000,$prime-2,70%);
-
-$pr-3-dark-1:mix(#000,$prime-3,20%);
-$pr-3-dark-2:mix(#000,$prime-3,50%);
-$pr-3-dark-3:mix(#000,$prime-3,70%);
-
-$pr-4-dark-1:mix(#000,$prime-4,20%);
-$pr-4-dark-2:mix(#000,$prime-4,50%);
-$pr-4-dark-3:mix(#000,$prime-4,70%);
-
-
 
 .grid {
     margin: 0 auto;
@@ -191,6 +116,8 @@ $pr-4-dark-3:mix(#000,$prime-4,70%);
    }
 }
 
+
+
 //
 .container {
         margin-left: 15px;
@@ -202,13 +129,15 @@ $pr-4-dark-3:mix(#000,$prime-4,70%);
     h2 {
         @include heading($font-medium,33px,$pr-4-dark-2);
     }
+    h1:hover,
     h2:hover,
-    h3:hover {
-        // width: 444px;
-        padding-left: 15px;
-        background-color: $prime-1;
-        color: #fff
+    h3:hover,
+    h4:hover,
+    h5:hover,
+    h6:hover {
+        @extend .hover;
     }
+
     
     h3 {
         @include heading($font-medium,27px,$pr-4-dark-3);
@@ -233,24 +162,21 @@ $pr-4-dark-3:mix(#000,$prime-4,70%);
 
 
 
-
-// ===================================================================
+// Subtitle
 .subtitle {
+    @include heading($font-medium,20px,$pr-4-dark-1);
     padding-left: 15px;
-    p {
-        @include heading($font-medium,20px,$pr-4-dark-1);
-    }
-    p:hover {
-        padding: 15px;
-        background-color: $prime-1;
-        color: #fff;
-    }
+}
+.subtitle:hover {
+    // padding: 15px;
+    // background-color: $prime-1;
+    // color: #fff;
+    @extend .hover;
+    padding: 15px;
 }
 
 
-
-// ==========================LIST================
-
+// List
 .list-style-1 li{
     @include heading($font-medium,15px,$pr-4-dark-1);
     list-style-type: none;
@@ -284,8 +210,8 @@ ul.list-style-1 {
     left: 3px;
 }
 
-// =============Quotation========
 
+// Quotation
 .quotation {
     p {
         @include heading($font-regular,17px,$pr-1-dark-1);
@@ -297,8 +223,224 @@ ul.list-style-1 {
 
 // ===========  Input elements _ Big=============
 
+label {
+    @include heading($font-medium,13px,$pr-4-dark-1);
+}
+.lable-2{
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: $prime-1;
+    @include heading($font-medium,13px,#fff);
+    
+}
+input {
+    margin-top: 5px;
+    border: solid 1px $pr-4-light-2;
+    border-radius: 2px;
+    background-color: #f6f9f9;
+    width: 320px;
+    padding: 15px;
+    height: 50px;
+    line-height: 50px;
+}
+input:hover {
+    background-color: #fff;
+}
 
-// ===========  Buttons  ===================
+input {
+    border: 1px solid #ccc;
+    outline: none;
+    &:focus {
+      border-color: $prime-1;
+    }
+  }
+
+// select
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    height:50px;
+    width: 320px;
+}    .select select {
+        font-family: 'Arial';
+        display: inline-block;
+        width: 320px;
+        cursor: pointer;
+        padding: 10px 15px;
+        outline: 0;
+        border: 2px solid #ccc;
+        border-radius: 0px;
+        background: #f6f9f9;
+        color: #c7c7c7;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        color: $pr-4-dark-1;
+        margin-top: 5px;
+    }
+        .select select::-ms-expand {
+            display: none;
+        }
+        .select select:hover,
+        .select select:focus {
+            // color: #000000;
+            background: #fff;
+
+        }
+        .select select:disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .select select option {
+            height: 50px;
+            padding: 20px 0;
+        }
+.select_arrow {
+    position: absolute;
+    top: 21px;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    border: solid #ccc;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-color: #ccc;
+}
+.select select:disabled ~ .select_arrow {
+    border-top-color: #cccccc;
+}
+
+select .select:hover {
+    background-color: #fff;
+}
+
+select:focus-visible + .select_arrow{
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    
+}
+.select select:focus {
+    border-color: $prime-1;
+    ;
+}
+p.label-3 {
+    margin-bottom: 0;
+    @include heading($font-medium,13px,$pr-4-dark-1);
+}
+
+// Check
+input[type = "checkbox"]{
+    appearance:none;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+input[type = "checkbox"]:hover {
+    border: 2px solid $prime-1;
+}
+input[type = "checkbox"]::before {
+    content: "";
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: 44%;
+    width: 17px;
+    height: 10px;
+    margin: -6px 0 0 -6px;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff; 
+    transform: rotate(-45deg);
+}
+input[type="checkbox"]:checked::before {
+    display: block;
+  }
+input[type="checkbox"]:checked {
+    background-color: $prime-1;
+    border-color: $prime-1;
+}
+input.disabled {
+    border-color: $pr-4-light-2;
+    background-color: $pr-4-light-2;
+    cursor: default;
+}
+input.disabled::after{
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 44%;
+    width: 17px;
+    height: 10px;
+    margin: -6px 0 0 -6px;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff; 
+    transform: rotate(-45deg);
+}
+input.disabled:hover {
+    border-color: $pr-4-light-2;
+}
+// crecle
+input.circle{
+    appearance:none;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    position: relative;
+    
+}
+input.circle:checked {
+    background-color: #fff;
+    border-color: $prime-1;
+}
+input.circle::before {
+    content: "";
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: 44%;
+    width: 15px;
+    height: 15px;
+    margin: -6px 0 0 -6px;
+    border: 1px solid $prime-1;
+    background-color: $prime-1;
+    border-radius: 50%;
+}
+input.disabled-circle {
+    border-radius: 50%;
+    border-color: $pr-4-light-2;
+    background-color: #fff;
+    cursor: default;
+}
+input.disabled-circle::after {
+    content: "";
+    // display: none;
+    position: absolute;
+    top: 45%;
+    left: 44%;
+    width: 15px;
+    height: 15px;
+    margin: -6px 0 0 -6px;
+    border: 1px solid $pr-4-light-2;
+    background-color: $pr-4-light-2;
+    border-radius: 50%;
+}
+input.disabled-circle:hover {
+    border-color: $pr-4-light-2;
+}
+
+//Buttons
 
 .buttons {
     display: grid;
@@ -306,30 +448,13 @@ ul.list-style-1 {
     grid-column-gap: 30px;
     grid-row-gap: 20px;
 
-    @mixin buttons($bgc,$text,$btn-w,$btn-h,$border,$radius,$line-h) {
-        border:solid 1px;
-        background-color: $bgc;
-        color: $text;
-        width: $btn-w;
-        height: $btn-h;
-        border-color: $border; //  black 3
-        border-radius: $radius;
-        line-height: $line-h;
-    }
-
-    @mixin btn-hover($bgc,$border){
-        background-color: $bgc;
-        border-color: $border;
-        color: #fff;
-    }
     
-
     button:nth-child(1),
     button:nth-child(2),
     button:nth-child(3),
     button:nth-child(4),
     button:nth-child(5) {
-        @include buttons($prime-2, #fff, 220px, 50px, $prime-2,3px, 50px)
+        @include buttons($prime-2, #fff, 220px, 50px, $prime-2,3px, 40px)
     }
 
     // button:nth-child(1),
@@ -350,9 +475,8 @@ ul.list-style-1 {
         width: 200px;
     }
     button:nth-child(1):hover {
-        // background-color: $pr-2-light-1;
-        // border:solid 1px $pr-2-light-1;
         @include btn-hover($pr-2-light-1,$pr-2-light-1)
+
     }
 
     button:nth-child(2) {
@@ -361,8 +485,6 @@ ul.list-style-1 {
         width: 280px;
     }
     button:nth-child(2):hover {
-        // background-color: $pr-1-light-2;
-        // border:solid 1px $pr-1-light-2;
         @include btn-hover($pr-1-light-2,$pr-1-light-2)
     }
 
@@ -372,8 +494,6 @@ ul.list-style-1 {
         width: 200px;
     }
     button:nth-child(3):hover {
-        // background-color: $pr-1-light-2;
-        // border:solid 1px $pr-1-light-2;
         @include btn-hover($pr-1-light-2,$pr-1-light-2)
     }
 
@@ -383,9 +503,6 @@ ul.list-style-1 {
         width: 220px;
     }
     button:nth-child(4):hover {
-        // background-color: $pr-2-light-1;
-        // border:solid 1px $pr-2-light-1;
-        // color: #fff;
         @include btn-hover($pr-2-light-1,$pr-2-light-1)
     }
 
@@ -396,23 +513,20 @@ ul.list-style-1 {
         width: 200px;
     }
     button:nth-child(5):hover {
-        // background-color: $pr-1-light-2;
-        // border:solid 1px $pr-1-light-2;
-        // color: #fff;
         @include btn-hover($pr-1-light-2,$pr-1-light-2)
     }
 
     button:nth-child(6) {
-        @include buttons($pr-4-light-2, #fff, 220px, 50px, $pr-4-light-2,3px, 50px)
+        @include buttons($pr-4-light-2, #fff, 220px, 50px, $pr-4-light-2,3px, 40px)
     }
     button:nth-child(7){
-        @include buttons($pr-4-light-2, #fff, 280px, 50px, $pr-4-light-2,3px, 50px)
+        @include buttons($pr-4-light-2, #fff, 280px, 50px, $pr-4-light-2,3px, 40px)
     }
     button:nth-child(8){
-        @include buttons($pr-4-light-2, #fff, 200px, 50px, $pr-4-light-2,3px, 50px)
+        @include buttons($pr-4-light-2, #fff, 200px, 50px, $pr-4-light-2,3px, 40px)
     }
     button:nth-child(9){
-        @include buttons($pr-4-light-2, #fff, 220px, 50px, $pr-4-light-2,3px, 50px)
+        @include buttons($pr-4-light-2, #fff, 220px, 50px, $pr-4-light-2,3px, 40px)
     }
     button:nth-child(10) {
         // background-color: $pr-4-light-2;
@@ -421,11 +535,11 @@ ul.list-style-1 {
         // border-radius: 3px;
         // line-height: 50px;
         // border:solid 1px $pr-4-light-2;
-        @include buttons($pr-4-light-2, #fff, 200px, 50px, $pr-4-light-2,3px, 50px)
+        @include buttons($pr-4-light-2, #fff, 200px, 50px, $pr-4-light-2,3px, 40px)
     }
 
     button:nth-child(11) {
-        @include buttons($prime-2, #fff, 150px, 40px, $prime-2,3px, 40px)
+        @include buttons($prime-2, #fff, 150px, 40px, $prime-2,3px, 30px)
     }
     button:nth-child(11):hover {
         // background-color: $pr-2-light-1;
@@ -434,7 +548,7 @@ ul.list-style-1 {
     }
 
     button:nth-child(12) {
-        @include buttons($pr-1-dark-1, #fff, 170px, 40px, $pr-1-dark-1,3px, 40px)
+        @include buttons($pr-1-dark-1, #fff, 170px, 40px, $pr-1-dark-1,3px, 30px)
     }
     button:nth-child(12):hover {
         // background-color: $pr-1-light-2;
@@ -443,7 +557,7 @@ ul.list-style-1 {
     }
 
     button:nth-child(13) {
-        @include buttons($pr-1-dark-1, #fff, 150px, 40px, $pr-1-dark-1,3px, 40px)
+        @include buttons($pr-1-dark-1, #fff, 150px, 40px, $pr-1-dark-1,3px, 30px)
     }
     button:nth-child(13):hover {
         // background-color: $pr-1-light-2;
@@ -452,7 +566,7 @@ ul.list-style-1 {
     }
 
     button:nth-child(14) {
-        @include buttons(#fff, $prime-2, 150px, 40px, $prime-2,3px, 40px)
+        @include buttons(#fff, $prime-2, 150px, 40px, $prime-2,3px, 30px)
         
     }
     button:nth-child(14):hover {
@@ -462,7 +576,7 @@ ul.list-style-1 {
         @include btn-hover($pr-2-light-1,$pr-2-light-1)
     }
     button:nth-child(15) {
-        @include buttons(#fff, $pr-1-dark-1, 150px, 40px, $pr-1-dark-1,3px, 40px)
+        @include buttons(#fff, $pr-1-dark-1, 150px, 40px, $pr-1-dark-1,3px, 30px)
         
     }
     button:nth-child(15):hover {
@@ -472,38 +586,30 @@ ul.list-style-1 {
         @include btn-hover($pr-1-light-2,$pr-1-light-2)
     }
     button:nth-child(16) {
-        @include buttons($pr-4-light-2, #fff, 150px, 40px, $pr-4-light-2,3px, 40px)
+        @include buttons($pr-4-light-2, #fff, 150px, 40px, $pr-4-light-2,3px, 30px)
     }
     button:nth-child(17) {
-        @include buttons($pr-4-light-2, #fff, 170px, 40px, $pr-4-light-2,3px, 40px)
+        @include buttons($pr-4-light-2, #fff, 170px, 40px, $pr-4-light-2,3px, 30px)
     }
     button:nth-child(18) {
-        @include buttons($pr-4-light-2, #fff, 150px, 40px, $pr-4-light-2,3px, 40px)
+        @include buttons($pr-4-light-2, #fff, 150px, 40px, $pr-4-light-2,3px, 30px)
     }
     button:nth-child(19) {
-        @include buttons($pr-4-light-2, #fff, 150px, 40px, $pr-4-light-2,3px, 40px)
+        @include buttons($pr-4-light-2, #fff, 150px, 40px, $pr-4-light-2,3px, 30px)
     }
     button:nth-child(20) {
-        @include buttons($pr-4-light-2, #fff, 150px, 40px, $pr-4-light-2,3px, 40px)
+        @include buttons($pr-4-light-2, #fff, 150px, 40px, $pr-4-light-2,3px, 30px)
     }
 }
-
-// .btn-solid:disabled {
-//     background-color: #tomato;
-// }
 
 
 
 /* Style the tab */
 .tab {
-    //overflow: hidden;
-    // border: 1px solid #ccc;
-    // background-color: #f1f1f1;
     border-bottom: 2px solid $pr-4-light-3;
     height: 51px;
   }
   .tablinks {
-    //   color: $pr-4-light-1;
       @include heading($font-medium,14px,$pr-4-light-1);
   }
   .tablinks:hover {
@@ -513,16 +619,14 @@ ul.list-style-1 {
     color: $prime-2;
 }
   
-  
   /* Style the buttons that are used to open the tab content */
   .tab button {
     background-color: inherit;
-    // float: left;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    // transition: 0.3s;
+
   }
   
   /* Change background color of buttons on hover */
