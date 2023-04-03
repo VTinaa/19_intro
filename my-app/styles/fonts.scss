@@ -25,3 +25,12 @@
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: 'Poppins-Light';
+    src: url('../fonts/Poppins-Light.woff2') format('woff2'),
+        url('../fonts/Poppins-Light.woff') format('woff'),
+        url('../fonts/Poppins-Light.svg#Poppins-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
